@@ -22,9 +22,9 @@ pipeline {
                docker run -d --name vamala -p 8134:8080 oumar:latest
                docker ps | grep vamala
                docker login -u ${oumarkenneh} -p ${$Amara1988}
+               docker tag oumar:latest oumarkenneh/oumar
 
-                    // Push the Docker image to DockerHub
-               docker push ${oumar}:${latest}
+               docker push oumarkenneh/oumar
                 '''
             }
         }
