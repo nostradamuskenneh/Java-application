@@ -2,34 +2,16 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage("build") {
             steps {
-
-                withMaven(
-                 
-                    maven: 'MavenInstallationName',
-                
-                    globalMavenSettingsConfig: 'GlobalMavenSettingsConfigName',
-             
-                    mavenSettingsConfig: 'MavenSettingsConfigName',
-                  
-                    mavenOpts: '-Dmaven.test.failure.ignore=true', 
-                    mavenOptsGlobal: '-DglobalOption=value', 
-                  
-                    options: [
-                       
-                        '-DpropertyName=propertyValue',
-                      
-                        '-DotherProperty=otherValue'
-                    ]
-                ) {
-                   
-                    sh '''
-                    'mvn clean package' 
-                    '''
-                }
-
-        
+                sh '''
+               mvn test
+               cd target
+               mv LoginWebApp.war $WORKSPACE
+              
+               pwd
+               ls
+                '''
             }
         }
 
