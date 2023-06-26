@@ -18,6 +18,7 @@ pipeline {
                cd $WORKSPACE
                ls
                docker build -t oumar .
+               docker rm -f vamala
                docker run -d --name vamala -p 8134:8080 oumar:latest
                docker ps | grep vamala
                docker logs fb9bec5246cd
