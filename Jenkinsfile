@@ -13,6 +13,7 @@ pipeline {
         stage("build-Image") {
             steps {
                 sh '''
+               cd target
                docker build -t oumar .
                 '''
             }
