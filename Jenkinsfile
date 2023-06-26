@@ -1,12 +1,15 @@
+
 pipeline {
     agent any
     stages {
         stage("build") {
             steps {
                 sh '''
+               rm -rf *.war $WORKSPACE
                mvn package
                cd target
                mv LoginWebApp.war $WORKSPACE
+              
                pwd
                ls
                 '''
