@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sh '''
                mvn package
+               cd target
+               mv LoginWebApp.war $WORKSPACE
                pwd
                ls
                 '''
@@ -13,9 +15,9 @@ pipeline {
         stage("build-Image") {
             steps {
                 sh '''
-               cd target
+               cd $WORKSPACE
                ls
-               docker build -t oumar -f /tmp/workspace/SESSION03/STUDENTS/s3Oumar/java-proj/Dockerfile
+               docker build -t oumar .
                 '''
             }
         }
