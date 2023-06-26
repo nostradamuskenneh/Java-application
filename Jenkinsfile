@@ -20,7 +20,7 @@ pipeline {
                docker build -t oumar .
                docker run -d --name vamala -p 8134:8080 oumar:latest
                docker ps | grep vamala
-               docker logs vamala
+               docker logs fb9bec5246cd
                 '''
             }
         }
