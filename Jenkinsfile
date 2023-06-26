@@ -5,7 +5,7 @@ pipeline {
         stage("build") {
             steps {
                 sh '''
-               mvn clean package
+               mvn test
                cd target
                mv LoginWebApp.war $WORKSPACE
               
