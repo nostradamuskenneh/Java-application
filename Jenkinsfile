@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh '''
                cd target
+               ls
                docker build -t oumar .
                 '''
             }
