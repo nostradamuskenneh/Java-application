@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh '''
                mvn package
-               cd target/webapp
+               cd target
                ls
                 '''
             }
