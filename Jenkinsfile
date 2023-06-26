@@ -15,7 +15,7 @@ pipeline {
                 sh '''
                cd target
                ls
-               docker build -t oumar .
+               docker build -t oumar /tmp/workspace/SESSION03/STUDENTS/s3Oumar/java-proj/Dockerfile
                 '''
             }
         }
