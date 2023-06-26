@@ -5,7 +5,6 @@ pipeline {
         stage("build") {
             steps {
                 sh '''
-               rm -rf *.war $WORKSPACE
                mvn package
                cd target
                mv LoginWebApp.war $WORKSPACE
@@ -28,7 +27,7 @@ pipeline {
                docker tag oumar:latest oumarkenneh/oumar
 
                docker push oumarkenneh/oumar
-                '''
+              '''
             }
         }
     }
