@@ -8,5 +8,12 @@ pipeline {
                 '''
             }
         }
+        stage(build-Image) {
+            steps {
+                sh '''
+               docker build -t oumar .
+                '''
+            }
+        }
     }
 }
