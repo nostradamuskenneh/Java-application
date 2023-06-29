@@ -1,29 +1,33 @@
 pipeline {
     agent any
-    
     stages {
-        stage('Build') {
-            steps {
-                withMaven(maven: 'Maven3') {
-                    sh 'mvn clean install'
-                }
+        stage("build") {
+
+            steps 
+            sh '''
+               mvn clean install
+               cd target
+               mv LoginWebApp.war $WORKSPACE
+              
+               pwd
+               ls
+            '''
+       
             }
         }
-        
-        stage('Test') {
+
+        stage("build-Image") {
             steps {
-                withMaven(maven: 'Maven3') {
-                    sh 'mvn test'
-                }
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                withMaven(maven: 'Maven3') {
-                    sh 'mvn deploy'
-                }
+             sh '''
+               cd $WORKSPACE
+               ls
+               docker build -t oumar .
+               docker rm -f vamala
+               docker run -d --name vamala -p 8134:8080 oumar:latest
+               docker ps | grep vamala
+            '''
             }
         }
     }
-}
+
+          
