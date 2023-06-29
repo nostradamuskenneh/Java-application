@@ -8,13 +8,7 @@ pipeline {
              withMaven(maven: 'MavenInstallationName') {
              sh 'mvn package'
            }
-                sh '''
-               cd target
-               mv LoginWebApp.war $WORKSPACE
-              
-               pwd
-               ls
-                '''
+       
             }
         }
 
