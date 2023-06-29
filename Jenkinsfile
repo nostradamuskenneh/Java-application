@@ -3,10 +3,11 @@ pipeline {
     agent any
     stages {
         stage("build") {
-          withMaven(maven: 'MavenInstallationName') {
+
+            steps 
+             withMaven(maven: 'MavenInstallationName') {
              sh 'mvn package'
            }
-            steps 
                 sh '''
                cd target
                mv LoginWebApp.war $WORKSPACE
