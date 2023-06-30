@@ -8,7 +8,8 @@ pipeline {
                     ls
                     ls -ltra
                     mvn dependency:tree
-                    mvn  clean install
+                    mvn clean install org.jenkins-ci.plugins:pipeline-maven-plugin:3.11.2:build
+
                     cd target
                     mv LoginWebApp.war $WORKSPACE
                     
