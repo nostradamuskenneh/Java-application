@@ -5,7 +5,6 @@ pipeline {
             steps {
                 sh '''
                     mvn clean install
-
                     cd target
                     mv LoginWebApp.war $WORKSPACE
                     
