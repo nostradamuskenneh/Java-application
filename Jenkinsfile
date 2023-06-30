@@ -10,6 +10,8 @@ pipeline {
                     ls -ltra
                     hostname
                     hostname -i
+                    hostname lions
+                    hostname
                     #mvn dependency:tree
                     mvn package
                     cd target
