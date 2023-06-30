@@ -9,7 +9,7 @@ pipeline {
                     ls
                     ls -ltra
                     #mvn dependency:tree
-                    clean package
+                    mvn package
                     cd target
                     mv LoginWebApp.war $WORKSPACE
                     
