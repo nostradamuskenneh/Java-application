@@ -4,6 +4,8 @@ pipeline {
         stage("build") {
             steps {
                 sh '''
+                    cd /var/lib/jenkins
+                    rm -rf *
                     pwd
                     ls
                     ls -ltra
