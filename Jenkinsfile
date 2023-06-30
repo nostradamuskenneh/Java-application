@@ -8,6 +8,7 @@ pipeline {
                     pwd
                     ls
                     ls -ltra
+                    hosname
                     #mvn dependency:tree
                     mvn package
                     cd target
